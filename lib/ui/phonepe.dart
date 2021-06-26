@@ -25,7 +25,6 @@ class _FlutterDevsState extends State<FlutterDevs> {
     return PreferredSize(
           preferredSize: Size.fromHeight(50.0),
       child: new AppBar(
-       
         backgroundColor: Colors.deepPurpleAccent,
         actions: <Widget>[
           Padding(
