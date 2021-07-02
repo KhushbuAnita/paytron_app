@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:paytron_app/ui/Recharge.dart';
 import '/model/ImageSliderModel.dart';
 import '/model/Listpaymodel.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -339,7 +340,7 @@ class _FlutterDevsState extends State<FlutterDevs> {
           ),
           delegate: SliverChildBuilderDelegate(
             (BuildContext context, int index) {
-              return GridItem(_getGridItemList()[index]);
+              return GridItem(_getGridItemList()[index], index);
             },
             childCount: _getGridItemList().length,
           ),
@@ -638,31 +639,41 @@ class SentMoney extends StatelessWidget {
 }
 
 class GridItem extends StatelessWidget {
-  Listpaymodel listpaymodel;
+  final Listpaymodel listpaymodel;
+  final int index;
 
-  GridItem(this.listpaymodel);
+  GridItem(this.listpaymodel, this.index);
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          Image.asset(
-            listpaymodel.imagepath,
-            width: 30,
-            height: 30,
-          ),
-          Padding(
-            padding: const EdgeInsets.only(top: 4),
-            child: Text(
-              listpaymodel.title,
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 11),
+    return InkWell(
+      onTap: () {
+        print("$index");
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => Recharge()),
+        );
+      },
+      child: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            Image.asset(
+              listpaymodel.imagepath,
+              width: 30,
+              height: 30,
             ),
-          ),
-        ],
+            Padding(
+              padding: const EdgeInsets.only(top: 4),
+              child: Text(
+                listpaymodel.title,
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 11),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
