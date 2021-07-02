@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:paytron_app/ui/Recharge.dart';
 import '/model/ImageSliderModel.dart';
 import '/model/Listpaymodel.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -24,70 +23,80 @@ class _FlutterDevsState extends State<FlutterDevs> {
   Widget _appBar() {
     return PreferredSize(
       preferredSize: Size.fromHeight(50.0),
-      child: AppBar(
+      child: new AppBar(
         backgroundColor: Colors.deepPurpleAccent,
-        title: Center(
-          child: Row(
-            children: <Widget>[
-              Image.asset(
-                "assets/outline_account_circle.png",
-                color: Colors.white,
-                height: 40,
-                width: 40,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 10),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
+        actions: <Widget>[
+          Padding(
+            padding: const EdgeInsets.only(right: 254),
+            child: Container(
+              height: 8,
+              child: Center(
+                child: Row(
                   children: <Widget>[
-                    Text(
-                      'Your Location',
-                      style: TextStyle(fontSize: 10),
+                    Image.asset(
+                      "assets/outline_account_circle.png",
+                      color: Colors.white,
+                      height: 40,
+                      width: 40,
                     ),
-                    Row(children: <Widget>[
-                      Text(
-                        'Noida',
-                        style: TextStyle(
-                            fontSize: 14, fontWeight: FontWeight.bold),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: <Widget>[
+                          Text(
+                            'Your Location',
+                            style: TextStyle(fontSize: 10),
+                          ),
+                          Row(children: <Widget>[
+                            Text(
+                              'Noida',
+                              style: TextStyle(
+                                  fontSize: 14, fontWeight: FontWeight.bold),
+                            ),
+                            Icon(Icons.arrow_drop_down),
+                          ]),
+                        ],
                       ),
-                      Icon(Icons.arrow_drop_down),
-                    ]),
+                    ),
                   ],
                 ),
               ),
+            ),
+          ),
+          Row(
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.only(right: 13),
+                child: Image.asset(
+                  "assets/outline_qrscan.png",
+                  color: Colors.white,
+                  height: 24,
+                  width: 24,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(right: 13),
+                child: Image.asset(
+                  "assets/notifications.png",
+                  color: Colors.white,
+                  height: 24,
+                  width: 24,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(
+                  right: 13,
+                ),
+                child: Image.asset(
+                  "assets/outline_help.png",
+                  color: Colors.white,
+                  height: 24,
+                  width: 24,
+                ),
+              ),
             ],
-          ),
-        ),
-        actions: <Widget>[
-          Padding(
-            padding: const EdgeInsets.only(right: 13),
-            child: Image.asset(
-              "assets/outline_qrscan.png",
-              color: Colors.white,
-              height: 24,
-              width: 24,
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(right: 13),
-            child: Image.asset(
-              "assets/notifications.png",
-              color: Colors.white,
-              height: 24,
-              width: 24,
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(
-              right: 13,
-            ),
-            child: Image.asset(
-              "assets/outline_help.png",
-              color: Colors.white,
-              height: 24,
-              width: 24,
-            ),
           ),
         ],
         elevation: 0,
@@ -96,19 +105,19 @@ class _FlutterDevsState extends State<FlutterDevs> {
   }
 
   Widget _bottemTab() {
-    return BottomNavigationBar(
+    return new BottomNavigationBar(
         currentIndex: 0,
         selectedItemColor: Colors.deepPurple,
         type: BottomNavigationBarType.fixed,
         items: [
-          BottomNavigationBarItem(
+          new BottomNavigationBarItem(
               icon: Icon(
                 Icons.home,
               ),
               title: Text(
                 'Home',
               )),
-          BottomNavigationBarItem(
+          new BottomNavigationBarItem(
               icon: Image.asset(
                 "assets/stores.png",
                 height: 19.5,
@@ -117,7 +126,7 @@ class _FlutterDevsState extends State<FlutterDevs> {
               title: Text(
                 'Stores',
               )),
-          BottomNavigationBarItem(
+          new BottomNavigationBarItem(
               icon: Image.asset(
                 "assets/placeholder.png",
                 height: 19.5,
@@ -126,7 +135,7 @@ class _FlutterDevsState extends State<FlutterDevs> {
               title: Text(
                 'Apps',
               )),
-          BottomNavigationBarItem(
+          new BottomNavigationBarItem(
               icon: Image.asset(
                 "assets/rupee.png",
                 height: 19.5,
@@ -135,7 +144,7 @@ class _FlutterDevsState extends State<FlutterDevs> {
               title: Text(
                 'My Money',
               )),
-          BottomNavigationBarItem(
+          new BottomNavigationBarItem(
               icon: Image.asset(
                 "assets/history.png",
                 height: 19.5,
@@ -148,7 +157,7 @@ class _FlutterDevsState extends State<FlutterDevs> {
   }
 
   Widget _bodyItem() {
-    return CustomScrollView(
+    return new CustomScrollView(
       slivers: <Widget>[
         SliverToBoxAdapter(
           child: Container(
@@ -330,7 +339,7 @@ class _FlutterDevsState extends State<FlutterDevs> {
           ),
           delegate: SliverChildBuilderDelegate(
             (BuildContext context, int index) {
-              return GridItem(_getGridItemList()[index], index);
+              return GridItem(_getGridItemList()[index]);
             },
             childCount: _getGridItemList().length,
           ),
@@ -439,47 +448,48 @@ class _FlutterDevsState extends State<FlutterDevs> {
 
   List<Listpaymodel> _getListpayList() {
     List<Listpaymodel> list = <Listpaymodel>[];
-    list.add(Listpaymodel("assets/bank1.png", "Bank Account Added"));
-    list.add(Listpaymodel("assets/wallet.jpg", "Wallet\nActivated"));
-    list.add(Listpaymodel("assets/card.png", "Add\nCard"));
+    list.add(new Listpaymodel("assets/bank1.png", "Bank Account Added"));
+    list.add(new Listpaymodel("assets/wallet.jpg", "Wallet\nActivated"));
+    list.add(new Listpaymodel("assets/card.png", "Add\nNew Card"));
 
-    list.add(Listpaymodel("assets/camear1.jpg", "Add\nPhoto"));
-    list.add(Listpaymodel("assets/finance.png", "Pay \nNow"));
+    list.add(new Listpaymodel("assets/camear1.jpg", "Add\nPhoto"));
+    list.add(new Listpaymodel("assets/finance.png", "Pay \nNow"));
     return list;
   }
 
   List<Listpaymodel> _getMoneyTransferList() {
     List<Listpaymodel> list = <Listpaymodel>[];
-    list.add(Listpaymodel("assets/self.png", "To Self"));
-    list.add(Listpaymodel("assets/account.png", "To Account"));
-    list.add(Listpaymodel("assets/bank2.jpg", "Bank Balance"));
-    Listpaymodel("assets/bank1.png", "Bank Balance");
-    list.add(Listpaymodel("assets/contact1.png", "To Contact"));
+    list.add(new Listpaymodel("assets/self.png", "To Self"));
+    list.add(new Listpaymodel("assets/account.png", "To Account"));
+    list.add(new Listpaymodel("assets/bank2.jpg", "Bank Balance"));
+    new Listpaymodel("assets/bank1.png", "Bank Balance");
+    list.add(new Listpaymodel("assets/contact1.png", "To Contact"));
 
-    list.add(Listpaymodel("assets/arrow.png", "See All"));
+    list.add(new Listpaymodel("assets/arrow.png", "See All"));
 
     return list;
   }
 
   List<Listpaymodel> _getGridItemList() {
     List<Listpaymodel> list = <Listpaymodel>[];
-    list.add(Listpaymodel("assets/recharge-icon.jpg", "Recharge"));
-    list.add(Listpaymodel("assets/dth2.png", "DTH"));
-    list.add(Listpaymodel("assets/electrict.png", "Electricity"));
-    list.add(Listpaymodel("assets/credit.png", "Credit Card"));
-    list.add(Listpaymodel("assets/post.png", "Postpaid"));
-    list.add(Listpaymodel("assets/landphone1.png", "Landline"));
-    list.add(Listpaymodel("assets/broad.png", "Broadband"));
-    list.add(Listpaymodel("assets/gascylinder.png", "Gas"));
-    list.add(Listpaymodel("assets/water1.png", "Water"));
-    list.add(Listpaymodel("assets/arrow.png", "See All"));
+    list.add(new Listpaymodel("assets/recharge-icon.jpg", "Recharge"));
+    list.add(new Listpaymodel("assets/dth2.png", "DTH"));
+    list.add(new Listpaymodel("assets/electrict.png", "Electricity"));
+    list.add(new Listpaymodel("assets/credit.png", "Credit Card"));
+    list.add(new Listpaymodel("assets/post.png", "Postpaid"));
+    list.add(new Listpaymodel("assets/landphone1.png", "Landline"));
+    list.add(new Listpaymodel("assets/broad.png", "Broadband"));
+    list.add(new Listpaymodel("assets/gascylinder.png", "Gas"));
+    list.add(new Listpaymodel("assets/water1.png", "Water"));
+    list.add(new Listpaymodel("assets/arrow.png", "See All"));
+
     return list;
   }
 
   List<ImageSliderModel> _getImageSliderList() {
     List<ImageSliderModel> list = [];
-    list.add(ImageSliderModel("assets/ghghgh.jpg"));
-    list.add(ImageSliderModel("assets/ghghgh.jpg"));
+    list.add(new ImageSliderModel("assets/ghghgh.jpg"));
+    list.add(new ImageSliderModel("assets/ghghgh.jpg"));
 
     return list;
   }
@@ -601,7 +611,7 @@ class MoneyTransfer extends StatelessWidget {
 }
 
 class SentMoney extends StatelessWidget {
-  final Listpaymodel listpaymodel;
+  Listpaymodel listpaymodel;
 
   SentMoney(this.listpaymodel);
 
@@ -628,42 +638,31 @@ class SentMoney extends StatelessWidget {
 }
 
 class GridItem extends StatelessWidget {
-  final Listpaymodel listpaymodel;
-  final int index;
+  Listpaymodel listpaymodel;
 
-  GridItem(this.listpaymodel, this.index);
+  GridItem(this.listpaymodel);
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        print("$index");
-        if(index==0)
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => Recharge()),
-        );
-      },
-      child: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            Image.asset(
-              listpaymodel.imagepath,
-              width: 30,
-              height: 30,
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          Image.asset(
+            listpaymodel.imagepath,
+            width: 30,
+            height: 30,
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 4),
+            child: Text(
+              listpaymodel.title,
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 11),
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 4),
-              child: Text(
-                listpaymodel.title,
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 11),
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

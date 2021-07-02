@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class Upi extends StatefulWidget {
-  const Upi({Key? key}) : super(key: key);
+class upi1 extends StatefulWidget {
+  const upi1({Key? key}) : super(key: key);
 
   @override
-  _UpiState createState() => _UpiState();
+  _upi1State createState() => _upi1State();
 }
 
-class _UpiState extends State<Upi> {
+class _upi1State extends State<upi1> {
   final TextEditingController _controller = new TextEditingController();
   int i = 0;
 

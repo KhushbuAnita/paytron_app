@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class BankAccount extends StatefulWidget {
-  const BankAccount({Key? key}) : super(key: key);
+class postpaid extends StatefulWidget {
+  const postpaid({Key? key}) : super(key: key);
 
   @override
-  _BankAccountState createState() => _BankAccountState();
+  _postpaidState createState() => _postpaidState();
 }
 
-class _BankAccountState extends State<BankAccount> {
+class _postpaidState extends State<postpaid> {
   final TextEditingController _controller = new TextEditingController();
   int i = 0;
 
@@ -17,31 +17,19 @@ class _BankAccountState extends State<BankAccount> {
         debugShowCheckedModeBanner: false,
         home: Scaffold(
           appBar: AppBar(
-            title: Column(
-              children: [
-                Text(
-                  'Select a bank linked with 9304582309',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 15,
-                  ),
-                ),
-                Text(
-                  'we may have to send a sms from your mobile number to verify your device.standard sms charges may apply',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 15,
-                  ),
-                ),
-                Text(
-                  'is your bank account linked with different number?',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 15,
-                  ),
-                )
-              ],
+            title: Text('Postpaid Recharge'),
+            leading: new IconButton(
+              icon: new Icon(Icons.arrow_back),
+              onPressed: () => Navigator.of(context).pop(),
             ),
+            actions: <Widget>[
+              IconButton(
+                icon: Icon(Icons.help),
+                onPressed: () {
+                  // do something
+                },
+              )
+            ],
           ),
           //AppBar
           body: Container(
@@ -54,25 +42,31 @@ class _BankAccountState extends State<BankAccount> {
                     decoration: InputDecoration(
                       border: new OutlineInputBorder(
                         borderRadius: const BorderRadius.all(
-                          const Radius.circular(12.0),
+                          const Radius.circular(50),
                         ),
                       ),
                       hintText: "Enter a message",
-                      suffixIcon: IconButton(
+                      prefixIcon: IconButton(
+                        icon: Icon(Icons.search),
                         onPressed: () => _controller.clear(),
-                        icon: Icon(Icons.clear),
                       ),
                     ),
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(16.0),
+                  padding: const EdgeInsets.only(right: 350),
+                  child: Text(
+                    'All Contact',
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
                   child: Container(
                     decoration: BoxDecoration(
                         color: Colors.blueAccent,
-                        borderRadius: BorderRadius.all(Radius.circular(20))),
+                        borderRadius: BorderRadius.all(Radius.circular(50))),
                     child: Padding(
-                      padding: const EdgeInsets.all(16.0),
+                      padding: const EdgeInsets.all(8.0),
                       child: Row(
                         children: [
                           Icon(
@@ -85,20 +79,19 @@ class _BankAccountState extends State<BankAccount> {
                             child: Row(
                               children: [
                                 SizedBox(
-                                    width: 220,
+                                    width: 350,
                                     child: Text(
-                                      'Nazia \n You:\$20-Paid',
+                                      ' Nazia \n xxxxxxxxxx',
                                       style: TextStyle(
                                         color: Colors.white,
                                       ),
                                     )),
                                 SizedBox(
-                                    width: 70,
-                                    child: Text(
-                                      '25/03/2021',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                      ),
+                                    width: 50,
+                                    height: 20,
+                                    child: Icon(
+                                      Icons.arrow_forward,
+                                      color: Colors.white,
                                     )),
                               ],
                             ),
@@ -109,13 +102,53 @@ class _BankAccountState extends State<BankAccount> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(16.0),
+                  padding: const EdgeInsets.all(8.0),
                   child: Container(
                     decoration: BoxDecoration(
                         color: Colors.blueAccent,
-                        borderRadius: BorderRadius.all(Radius.circular(20))),
+                        borderRadius: BorderRadius.all(Radius.circular(50))),
                     child: Padding(
-                      padding: const EdgeInsets.all(16.0),
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        children: [
+                          Icon(
+                            Icons.person,
+                            size: 30,
+                            color: Colors.white,
+                          ),
+                          Container(
+                            height: 30,
+                            child: Row(children: [
+                              SizedBox(
+                                  width: 350,
+                                  child: Text(
+                                    ' Nazia \n xxxxxxxxxx',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                    ),
+                                  )),
+                              SizedBox(
+                                  width: 50,
+                                  height: 20,
+                                  child: Icon(
+                                    Icons.arrow_forward,
+                                    color: Colors.white,
+                                  )),
+                            ]),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    decoration: BoxDecoration(
+                        color: Colors.blueAccent,
+                        borderRadius: BorderRadius.all(Radius.circular(50))),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
                       child: Row(
                         children: [
                           Icon(
@@ -128,20 +161,19 @@ class _BankAccountState extends State<BankAccount> {
                             child: Row(
                               children: [
                                 SizedBox(
-                                    width: 220,
+                                    width: 350,
                                     child: Text(
-                                      'Nazia \n You:\$20-Paid',
+                                      ' Nazia 2 \n xxxxxxxxxx',
                                       style: TextStyle(
                                         color: Colors.white,
                                       ),
                                     )),
                                 SizedBox(
-                                    width: 70,
-                                    child: Text(
-                                      '25/03/2021',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                      ),
+                                    width: 50,
+                                    height: 20,
+                                    child: Icon(
+                                      Icons.arrow_forward,
+                                      color: Colors.white,
                                     )),
                               ],
                             ),
@@ -151,63 +183,8 @@ class _BankAccountState extends State<BankAccount> {
                     ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                        color: Colors.blueAccent,
-                        borderRadius: BorderRadius.all(Radius.circular(20))),
-                    child: Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Row(
-                        children: [
-                          Icon(
-                            Icons.person,
-                            size: 30,
-                            color: Colors.white,
-                          ),
-                          Container(
-                            height: 30,
-                            child: Row(
-                              children: [
-                                SizedBox(
-                                    width: 220,
-                                    child: Text(
-                                      'Nazia \n You:\$20-Paid',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                      ),
-                                    )),
-                                SizedBox(
-                                    width: 70,
-                                    child: Text(
-                                      '25/03/2021',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                      ),
-                                    )),
-                              ],
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
-                )
               ],
             ),
-          ),
-          floatingActionButtonLocation:
-              FloatingActionButtonLocation.centerDocked,
-          floatingActionButton: FloatingActionButton.extended(
-            // isExtended: true,
-            label: Text('Add Bank Account'),
-            backgroundColor: Colors.blueAccent,
-            onPressed: () {
-              setState(() {
-                i++;
-              });
-            },
           ),
         ));
   }

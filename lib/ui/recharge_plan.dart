@@ -5,11 +5,10 @@ import 'package:http/http.dart' as http;
 import 'package:xml2json/xml2json.dart';
 
 
-Future<Album> createAlbum(String cn,String amt,String op ) async {
+Future<Album> fetchAlbum(String cn) async {
 var queryParams = {
-  'cn':cn,
-  'amt':amt,
- 'op':op
+  'cn':cn
+  
  
 };
 Xml2Json xml2json=new Xml2Json();
@@ -21,10 +20,9 @@ final response = await http.get(Uri.parse(requestUrl), headers: {'ContentType':'
   if (response.statusCode == 200) {                                                                                                                                                                                                                                                                             
     // If the server did return a 201 CREATED response,
     // then parse the JSON.
-  print(album.toJson());
-   xml2json.parse(response.body);
-   var jsonData=xml2json.toGData();
-   return Album.fromJson(json.decode(jsonData));
+   print(response.body);
+   
+   return Album.fromJson(json.decode(response.body));
     
   } else {
     // If the server did not return a 201 CREATED response,
@@ -35,57 +33,47 @@ final response = await http.get(Uri.parse(requestUrl), headers: {'ContentType':'
 
 class Album {
   
-  final String status;
-  final String txId;
-  final String balance;
-  final String discountprice;
-  Album({  required this.status,  required this.txId,required this.balance, required this.discountprice});
+  final String cn;
+  
+  Album({  required this.cn});
 
   factory Album.fromJson(Map<String, dynamic> json) {
     return Album(
-     status: json['cn'] ,
-     txId: json['amt'] ,
-      balance: json['op'] ,
-      discountprice:json['discount']
+     cn: json['cn'] ,
+     
       
     );
   }
 
   Map<String,dynamic> toJson()=>{
-    "cn":status,
-    "amt":txId,
-    "op":balance,
-    "discount":discountprice,
+    "cn":cn,
   };
 }
 
-  var album = new Album(status:'',txId: '', balance: '',discountprice: '');
-  
-class Recharge extends StatefulWidget {
-  Recharge({Key? key}) : super(key: key);
-  
+class RechargePlan extends StatefulWidget {
+  const RechargePlan({ Key? key }) : super(key: key);
+
   @override
-  _RechargeState createState() => _RechargeState();
+  _RechargePlanState createState() => _RechargePlanState();
 }
 
-class _RechargeState extends State<Recharge> {
+class _RechargePlanState extends State<RechargePlan> {
  
   final TextEditingController _controller = TextEditingController();
-  final TextEditingController _controller1 = TextEditingController();
-  final TextEditingController _controller2 = TextEditingController();
+  
   Future<Album>? _futureAlbum;
 
 
    @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Create Data Example',
+      title: 'Select Recharge Plan',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Create Data Example'),
+          title: Text('Select Recharge Plan'),
         ),
         body: Container(
           alignment: Alignment.center,
@@ -102,20 +90,13 @@ class _RechargeState extends State<Recharge> {
       children: <Widget>[
         TextField(
           controller: _controller,
-          decoration: InputDecoration(hintText: 'Enter Mobile No.'),
+          decoration: InputDecoration(hintText: 'Search Plan'),
         ),
-        TextField(
-          controller: _controller1,
-          decoration: InputDecoration(hintText: 'Enter Amount'),
-        ),
-        TextField(
-          controller: _controller2,
-          decoration: InputDecoration(hintText: 'Enter Operator.'),
-        ),
+      
         ElevatedButton(
           onPressed: () {
             setState(() {
-              _futureAlbum = createAlbum(_controller.text,_controller1.text,_controller2.text);
+              _futureAlbum = fetchAlbum(_controller.text);
               
             });
           },
