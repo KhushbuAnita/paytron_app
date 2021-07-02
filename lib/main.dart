@@ -24,8 +24,6 @@ class MyApp extends StatelessWidget {
       routes: <String, WidgetBuilder>{
         SPLASH_SCREEN: (BuildContext context) => SplashScreen(),
         PHONE_PE: (BuildContext context) => FlutterDevs(),
-
-
       },
     );
   }

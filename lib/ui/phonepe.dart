@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:paytron_app/ui/Recharge.dart';
 import '/model/ImageSliderModel.dart';
 import '/model/Listpaymodel.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -15,111 +16,99 @@ class _FlutterDevsState extends State<FlutterDevs> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: PreferredSize(
-              preferredSize: Size.fromHeight(70.0),
-              child: _appBar()),
+            preferredSize: Size.fromHeight(70.0), child: _appBar()),
         body: _bodyItem(),
         bottomNavigationBar: _bottemTab());
   }
 
   Widget _appBar() {
     return PreferredSize(
-          preferredSize: Size.fromHeight(50.0),
-      child: new AppBar(
+      preferredSize: Size.fromHeight(50.0),
+      child: AppBar(
         backgroundColor: Colors.deepPurpleAccent,
-        actions: <Widget>[
-          Padding(
-            padding: const EdgeInsets.only(right: 254),
-            
-              child: Container(
-                height: 8,
-                child: Center(
-                  child: Row(
-                  children: <Widget>[
-                    Image.asset(
-                      "assets/outline_account_circle.png",
-                      color: Colors.white,
-                      height: 40,
-                      width: 40,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 10),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: <Widget>[
-                          Text(
-                            'Your Location',
-                            style: TextStyle(fontSize: 10),
-                          ),
-                          Row(children: <Widget>[
-                            Text(
-                              'Noida',
-                              style: TextStyle(
-                                  fontSize: 14, fontWeight: FontWeight.bold),
-                            ),
-                            Icon(Icons.arrow_drop_down),
-                          ]),
-                        ],
-                      ),
-                    ),
-                  ],
-                          ),
-                ),
-              ),
-          ),
-          Row(
+        title: Center(
+          child: Row(
             children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.only(right: 13),
-                child: Image.asset(
-                  "assets/outline_qrscan.png",
-                  color: Colors.white,
-                  height: 24,
-                  width: 24,
-                ),
+              Image.asset(
+                "assets/outline_account_circle.png",
+                color: Colors.white,
+                height: 40,
+                width: 40,
               ),
               Padding(
-                padding: const EdgeInsets.only(right: 13),
-                child: Image.asset(
-                  "assets/notifications.png",
-                  color: Colors.white,
-                  height: 24,
-                  width: 24,
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(
-                  right: 13,
-                ),
-                child: Image.asset(
-                  "assets/outline_help.png",
-                  color: Colors.white,
-                  height: 24,
-                  width: 24,
+                padding: const EdgeInsets.only(left: 10),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    Text(
+                      'Your Location',
+                      style: TextStyle(fontSize: 10),
+                    ),
+                    Row(children: <Widget>[
+                      Text(
+                        'Noida',
+                        style: TextStyle(
+                            fontSize: 14, fontWeight: FontWeight.bold),
+                      ),
+                      Icon(Icons.arrow_drop_down),
+                    ]),
+                  ],
                 ),
               ),
             ],
           ),
+        ),
+        actions: <Widget>[
+          Padding(
+            padding: const EdgeInsets.only(right: 13),
+            child: Image.asset(
+              "assets/outline_qrscan.png",
+              color: Colors.white,
+              height: 24,
+              width: 24,
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(right: 13),
+            child: Image.asset(
+              "assets/notifications.png",
+              color: Colors.white,
+              height: 24,
+              width: 24,
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(
+              right: 13,
+            ),
+            child: Image.asset(
+              "assets/outline_help.png",
+              color: Colors.white,
+              height: 24,
+              width: 24,
+            ),
+          ),
         ],
-        elevation: 0, 
+        elevation: 0,
       ),
     );
   }
 
   Widget _bottemTab() {
-    return new BottomNavigationBar(
+    return BottomNavigationBar(
         currentIndex: 0,
         selectedItemColor: Colors.deepPurple,
         type: BottomNavigationBarType.fixed,
         items: [
-          new BottomNavigationBarItem(
+          BottomNavigationBarItem(
               icon: Icon(
                 Icons.home,
               ),
               title: Text(
                 'Home',
               )),
-          new BottomNavigationBarItem(
+          BottomNavigationBarItem(
               icon: Image.asset(
                 "assets/stores.png",
                 height: 19.5,
@@ -128,7 +117,7 @@ class _FlutterDevsState extends State<FlutterDevs> {
               title: Text(
                 'Stores',
               )),
-          new BottomNavigationBarItem(
+          BottomNavigationBarItem(
               icon: Image.asset(
                 "assets/placeholder.png",
                 height: 19.5,
@@ -137,7 +126,7 @@ class _FlutterDevsState extends State<FlutterDevs> {
               title: Text(
                 'Apps',
               )),
-          new BottomNavigationBarItem(
+          BottomNavigationBarItem(
               icon: Image.asset(
                 "assets/rupee.png",
                 height: 19.5,
@@ -146,7 +135,7 @@ class _FlutterDevsState extends State<FlutterDevs> {
               title: Text(
                 'My Money',
               )),
-          new BottomNavigationBarItem(
+          BottomNavigationBarItem(
               icon: Image.asset(
                 "assets/history.png",
                 height: 19.5,
@@ -159,7 +148,7 @@ class _FlutterDevsState extends State<FlutterDevs> {
   }
 
   Widget _bodyItem() {
-    return new CustomScrollView(
+    return CustomScrollView(
       slivers: <Widget>[
         SliverToBoxAdapter(
           child: Container(
@@ -168,7 +157,10 @@ class _FlutterDevsState extends State<FlutterDevs> {
               padding: const EdgeInsets.only(left: 13, top: 13, bottom: 8),
               child: Text(
                 'Make the way you want',
-                 style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold,color:Colors.black),
+                style: TextStyle(
+                    fontSize: 13,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black),
               ),
             ),
           ),
@@ -198,12 +190,14 @@ class _FlutterDevsState extends State<FlutterDevs> {
             height: 1,
           ),
         ),
-        
         SliverToBoxAdapter(
           child: Container(
             child: Text(
               'Money Transfers',
-               style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold,color:Colors.deepPurpleAccent),
+              style: TextStyle(
+                  fontSize: 13,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.deepPurpleAccent),
             ),
             padding: EdgeInsets.only(left: 15, top: 10, bottom: 13),
           ),
@@ -237,7 +231,6 @@ class _FlutterDevsState extends State<FlutterDevs> {
             ),
           ),
         ),
-        
         SliverToBoxAdapter(
           child: Container(
             color: Colors.grey[100],
@@ -260,7 +253,7 @@ class _FlutterDevsState extends State<FlutterDevs> {
                         child: Text(
                           'View All\nOffers',
                           textAlign: TextAlign.center,
-                           style: TextStyle(fontSize: 12),
+                          style: TextStyle(fontSize: 12),
                         ),
                       ),
                     ],
@@ -306,7 +299,7 @@ class _FlutterDevsState extends State<FlutterDevs> {
                         child: Text(
                           'Refer & Earn\nUp to ₹1000',
                           textAlign: TextAlign.center,
-                           style: TextStyle(fontSize: 12),
+                          style: TextStyle(fontSize: 12),
                         ),
                       ),
                     ],
@@ -316,12 +309,14 @@ class _FlutterDevsState extends State<FlutterDevs> {
             ),
           ),
         ),
-       
-         SliverToBoxAdapter(
+        SliverToBoxAdapter(
           child: Container(
             child: Text(
               'Recharge',
-               style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold,color:Colors.deepPurpleAccent),
+              style: TextStyle(
+                  fontSize: 13,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.deepPurpleAccent),
             ),
             padding: EdgeInsets.only(left: 15, top: 10, bottom: 13),
           ),
@@ -335,12 +330,12 @@ class _FlutterDevsState extends State<FlutterDevs> {
           ),
           delegate: SliverChildBuilderDelegate(
             (BuildContext context, int index) {
-              return GridItem(_getGridItemList()[index]);
+              return GridItem(_getGridItemList()[index], index);
             },
             childCount: _getGridItemList().length,
           ),
         ),
-         SliverToBoxAdapter(
+        SliverToBoxAdapter(
           child: Container(
             child: Column(
               children: [
@@ -348,21 +343,19 @@ class _FlutterDevsState extends State<FlutterDevs> {
                   alignment: Alignment.topLeft,
                   child: Text(
                     'Brand Voucher',
-                    style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold,color:Colors.deepPurple),
-                    textAlign:TextAlign.left,
-                      
+                    style: TextStyle(
+                        fontSize: 13,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.deepPurple),
+                    textAlign: TextAlign.left,
                   ),
                 ),
-                                
               ],
             ),
-           
             padding: EdgeInsets.only(left: 15, top: 15),
           ),
-          
         ),
-        
-         SliverToBoxAdapter(
+        SliverToBoxAdapter(
           child: Container(
             color: Colors.grey[100],
             height: 92,
@@ -384,7 +377,7 @@ class _FlutterDevsState extends State<FlutterDevs> {
                         child: Text(
                           'View All\nOffers',
                           textAlign: TextAlign.center,
-                           style: TextStyle(fontSize: 12),
+                          style: TextStyle(fontSize: 12),
                         ),
                       ),
                     ],
@@ -430,7 +423,7 @@ class _FlutterDevsState extends State<FlutterDevs> {
                         child: Text(
                           'Refer & Earn\nUp to ₹1000',
                           textAlign: TextAlign.center,
-                           style: TextStyle(fontSize: 12),
+                          style: TextStyle(fontSize: 12),
                         ),
                       ),
                     ],
@@ -443,59 +436,50 @@ class _FlutterDevsState extends State<FlutterDevs> {
       ],
     );
   }
-  
 
   List<Listpaymodel> _getListpayList() {
     List<Listpaymodel> list = <Listpaymodel>[];
-    list.add(new Listpaymodel(
-        "assets/bank1.png", "Bank Account Added"));
-    list.add(new Listpaymodel(
-        "assets/wallet.jpg", "Wallet\nActivated"));
-    list.add(new Listpaymodel("assets/card.png", "Add\nNew Card"));
+    list.add(Listpaymodel("assets/bank1.png", "Bank Account Added"));
+    list.add(Listpaymodel("assets/wallet.jpg", "Wallet\nActivated"));
+    list.add(Listpaymodel("assets/card.png", "Add\nCard"));
 
-    list.add(new Listpaymodel("assets/camear1.jpg", "Add\nPhoto"));
-    list.add(new Listpaymodel("assets/finance.png", "Pay \nNow"));
+    list.add(Listpaymodel("assets/camear1.jpg", "Add\nPhoto"));
+    list.add(Listpaymodel("assets/finance.png", "Pay \nNow"));
     return list;
   }
 
   List<Listpaymodel> _getMoneyTransferList() {
     List<Listpaymodel> list = <Listpaymodel>[];
-    list.add(new Listpaymodel("assets/self.png", "To Self"));
-    list.add(new Listpaymodel(
-        "assets/account.png", "To Account"));
-    list.add(new Listpaymodel("assets/bank2.jpg", "Bank Balance" ));
-        new Listpaymodel("assets/bank1.png", "Bank Balance" );
-    list.add(new Listpaymodel("assets/contact1.png", "To Contact" ));
-    
-    list.add(new Listpaymodel("assets/arrow.png", "See All" ));
-    
+    list.add(Listpaymodel("assets/self.png", "To Self"));
+    list.add(Listpaymodel("assets/account.png", "To Account"));
+    list.add(Listpaymodel("assets/bank2.jpg", "Bank Balance"));
+    Listpaymodel("assets/bank1.png", "Bank Balance");
+    list.add(Listpaymodel("assets/contact1.png", "To Contact"));
+
+    list.add(Listpaymodel("assets/arrow.png", "See All"));
+
     return list;
   }
- List<Listpaymodel> _getGridItemList() {
+
+  List<Listpaymodel> _getGridItemList() {
     List<Listpaymodel> list = <Listpaymodel>[];
-
-    list.add(new Listpaymodel("assets/recharge-icon.jpg", "Recharge"));
-    list.add(new Listpaymodel("assets/dth2.png", "DTH"));
-    list.add(new Listpaymodel("assets/electrict.png", "Electricity"));
-    list.add(new Listpaymodel("assets/credit.png", "Credit Card"));
-    list.add(new Listpaymodel("assets/post.png", "Postpaid"));
-    list.add(new Listpaymodel("assets/landphone1.png", "Landline"));
-    list.add(new Listpaymodel("assets/broad.png", "Broadband"));
-    list.add(new Listpaymodel("assets/gascylinder.png", "Gas"));
-    list.add(new Listpaymodel("assets/water1.png", "Water"));
-    list.add(new Listpaymodel("assets/arrow.png", "See All"));
-   
-
+    list.add(Listpaymodel("assets/recharge-icon.jpg", "Recharge"));
+    list.add(Listpaymodel("assets/dth2.png", "DTH"));
+    list.add(Listpaymodel("assets/electrict.png", "Electricity"));
+    list.add(Listpaymodel("assets/credit.png", "Credit Card"));
+    list.add(Listpaymodel("assets/post.png", "Postpaid"));
+    list.add(Listpaymodel("assets/landphone1.png", "Landline"));
+    list.add(Listpaymodel("assets/broad.png", "Broadband"));
+    list.add(Listpaymodel("assets/gascylinder.png", "Gas"));
+    list.add(Listpaymodel("assets/water1.png", "Water"));
+    list.add(Listpaymodel("assets/arrow.png", "See All"));
     return list;
   }
-  
- 
 
   List<ImageSliderModel> _getImageSliderList() {
     List<ImageSliderModel> list = [];
-    list.add(new ImageSliderModel("assets/ghghgh.jpg"));
-    list.add(new ImageSliderModel("assets/ghghgh.jpg"));
-
+    list.add(ImageSliderModel("assets/ghghgh.jpg"));
+    list.add(ImageSliderModel("assets/ghghgh.jpg"));
 
     return list;
   }
@@ -540,7 +524,6 @@ class _FlutterDevsState extends State<FlutterDevs> {
 
   Widget imageSliderItem(ImageSliderModel i) {
     return Container(
-
         padding: EdgeInsets.only(left: 8, right: 8),
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10), color: Colors.white),
@@ -550,8 +533,7 @@ class _FlutterDevsState extends State<FlutterDevs> {
           borderRadius: BorderRadius.circular(10),
           child: Image.asset(
             i.path,
-fit: BoxFit.fill,
-
+            fit: BoxFit.fill,
 
 //            width: MediaQuery.of(context).size.width/4,
 //            height: MediaQuery.of(context).size.height,
@@ -575,7 +557,6 @@ class Listpay extends StatelessWidget {
       children: <Widget>[
         Image.asset(
           listpaymodel.imagepath,
-         
           width: 40,
           height: 40,
         ),
@@ -599,30 +580,28 @@ class MoneyTransfer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Column(
-        children: <Widget>[
-          Image.asset(
-            listpaymodel.imagepath,
-            
-            width: 46,
-            height: 46,
+    return Column(
+      children: <Widget>[
+        Image.asset(
+          listpaymodel.imagepath,
+          width: 46,
+          height: 46,
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 4),
+          child: Text(
+            listpaymodel.title,
+            textAlign: TextAlign.start,
+            style: TextStyle(fontSize: 11),
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 4),
-            child: Text(
-              listpaymodel.title,
-              textAlign: TextAlign.start,
-              style: TextStyle(fontSize: 11),
-            ),
-          ),
-        ],
-      
+        ),
+      ],
     );
   }
 }
 
 class SentMoney extends StatelessWidget {
-  Listpaymodel listpaymodel;
+  final Listpaymodel listpaymodel;
 
   SentMoney(this.listpaymodel);
 
@@ -632,7 +611,6 @@ class SentMoney extends StatelessWidget {
       children: <Widget>[
         Image.asset(
           listpaymodel.imagepath,
-          
           width: 46,
           height: 46,
         ),
@@ -650,32 +628,42 @@ class SentMoney extends StatelessWidget {
 }
 
 class GridItem extends StatelessWidget {
-  Listpaymodel listpaymodel;
+  final Listpaymodel listpaymodel;
+  final int index;
 
-  GridItem(this.listpaymodel);
+  GridItem(this.listpaymodel, this.index);
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          Image.asset(
-            listpaymodel.imagepath,
-            width: 30,
-            height: 30,
-            
-          ),
-          Padding(
-            padding: const EdgeInsets.only(top: 4),
-            child: Text(
-              listpaymodel.title,
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 11),
+    return InkWell(
+      onTap: () {
+        print("$index");
+        if(index==0)
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => Recharge()),
+        );
+      },
+      child: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            Image.asset(
+              listpaymodel.imagepath,
+              width: 30,
+              height: 30,
             ),
-          ),
-        ],
+            Padding(
+              padding: const EdgeInsets.only(top: 4),
+              child: Text(
+                listpaymodel.title,
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 11),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

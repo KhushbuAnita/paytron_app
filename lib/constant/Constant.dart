@@ -1,2 +1,2 @@
-String SPLASH_SCREEN='/SplashScreen',
-PHONE_PE='/phonepe';
+const String SPLASH_SCREEN='/SplashScreen';
+const String PHONE_PE='/phonepe';
